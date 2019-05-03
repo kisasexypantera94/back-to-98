@@ -21,14 +21,11 @@ def process_line(line):
 
 def main():
     filename = sys.argv[1]
-    out = open("98" + filename, mode="w")
     with open(filename) as f:
         for line in f:
-            out.write(process_line(line))
-
-    out.close()
+            print(process_line(line), end='')
 
 
 if __name__ == "__main__":
     main()
-    print("Done.")
+    print("\nDone.")
