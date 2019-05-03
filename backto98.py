@@ -3,7 +3,7 @@ import sys
 
 
 def process_line(line):
-    line = line.replace("nullptr", "NULL").replace(">>", "> >").replace("cin > >", "cin >>")
+    line = line.replace("nullptr", "NULL").replace(">>", "> > ").replace("cin > >", "cin >>")
 
     while True:
         m = re.search("map<(.+?)>", line)
