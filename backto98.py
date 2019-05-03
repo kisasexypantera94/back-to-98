@@ -12,7 +12,7 @@ def process_line(line):
             inside = m.group(1).split(",", 1)
             left = inside[0].strip()
             right = inside[1].strip()
-            line = re.sub("map<{}, {}>".format(left, right),
+            line = re.sub("map<{},\s?{}>".format(left, right),
                           "set<pair<{}, {}> >".format(left, right), line)
         else:
             break
