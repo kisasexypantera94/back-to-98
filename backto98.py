@@ -1,10 +1,9 @@
-import sys
 import re
+import sys
 
 
 def process_line(line):
-    line = line.replace("nullptr", "NULL").replace(">>", "> >").replace(
-        ">>", "> >")
+    line = line.replace("nullptr", "NULL").replace(">>", "> >").replace("cin > >", "cin >>")
 
     while True:
         m = re.search("map<(.+?)>", line)
@@ -12,7 +11,7 @@ def process_line(line):
             inside = m.group(1).split(",", 1)
             left = inside[0].strip()
             right = inside[1].strip()
-            line = re.sub("map<{},\s?{}>".format(left, right),
+            line = re.sub(r"map<{},\s?{}>".format(left, right),
                           "set<pair<{}, {}> >".format(left, right), line)
         else:
             break
